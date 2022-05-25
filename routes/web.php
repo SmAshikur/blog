@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\COntactCOntroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+Route::get('/blog',[BlogController::class,'index'])->name('blog');;
+Route::get('/about',[AboutController::class,'about'])->name('about');;
+Route::get('/contact',[COntactCOntroller::class,'contact'])->name('contact');;
