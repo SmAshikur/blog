@@ -10,7 +10,10 @@ body {
   color: #999;
   background: #101010;
 }
-
+#app {
+    margin-left: 300px;
+    overflow-x: hidden;
+  }
 #wrapper {
   margin-left: 300px;
   overflow-x: hidden;

@@ -13,11 +13,12 @@
 </head>
 
 <body>
+    <x-sidebar/>
   <div id="wrapper">
 
 
      <!-- sidebar -->
-     <x-sidebar/>
+
 
     <!-- Menu Button -->
     <div class="menuButton">

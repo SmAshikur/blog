@@ -9,6 +9,10 @@
             <li><a class="{{Request::routeIs('blog')?'active':''}}" href="{{asset('/blog')}}">Blog</a></li>
             <li><a class="{{Request::routeIs('about')?'active':''}}" href="{{asset('/about')}}">About</a></li>
             <li><a class="{{Request::routeIs('contact')?'active':''}}" href="{{asset('/contact')}}">Contact</a></li>
+            @guest
+            <li><a class="{{Request::routeIs('login')?'active':''}}" href="{{asset('/login')}}">Log In</a></li>
+            <li><a class="{{Request::routeIs('register')?'active':''}}" href="{{asset('/register')}}">Register</a></li>
+            @endguest
           </ul>
         </div>
           <!-- sidebar footer -->
