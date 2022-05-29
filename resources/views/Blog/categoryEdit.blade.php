@@ -17,13 +17,13 @@
                         <a class="btn btn-success " href="{{route('home')}}"> Back to dashboard</a>
                     </div>
                     <div>
-                        <h3>Create new Category</h3>
+                        <h3>Edit Category</h3>
                     </div>
                     <div >
-                        <form  action="{{route('categories.store')}}" method="POST">@csrf
+                        <form  action="{{route('categories.update',$category)}}" method="POST">@csrf @method('put')
                             <div class="form-group">
                                 <label> Category Name</label>
-                                <input type="text" class="form-control" name="name">
+                                <input type="text" class="form-control" name="name" value="{{$category->name}}">
                             </div>
 
                             <div class="form-group d-flex justify-content-center mt-5">

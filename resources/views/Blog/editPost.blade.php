@@ -36,11 +36,25 @@
                             <p style="color: red;  ">{{ $message }}</p>
                             @enderror
                             <div class="form-group">
+                                <label> Select a Category</label>
+                                <select class="form-control" name="category_id">
+                                    <option> Select a Category</option>
+                                    @foreach ($cats as $cat )
+                                        <option value="{{$cat->id}}"
+                                            @if ($post->category_id== $cat->id)
+                                            selected
+                                            @endif > {{$cat->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('category_id')
+                            {{-- The $attributeValue field is/must be $validationRule --}}
+                            <p style="color: red;  ">{{ $message }}</p>
+                            @enderror
+                            <div class="form-group">
                                 <label> Image</label>
-                                <input type="file" class="form-control" name="image" value="{{$post->image}}">
-                                <div style="height: 100px ; margin-left:200px"  >
-                                    <img class="h-100 mt-2" src="{{asset($post->image)}}">
-                                </div>
+                                <input type="file" class="form-control" name="image" value="{{asset($post->image) }}">
+                                <img class="my-2" src="{{asset($post->image) }}" width="200px">
                             </div>
                             @error('image')
                             {{-- The $attributeValue field is/must be $validationRule --}}

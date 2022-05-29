@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\COntactCOntroller;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +31,13 @@ Route::get('/postEdit/{post}/edit',[BlogController::class,'postEdit'])->name('po
 Route::get('/postDelete/{post}',[BlogController::class,'postDelete'])->name('postDelete');
 Route::post('/postUpdate/{post}',[BlogController::class,'postUpdate'])->name('postUpdate');
 Route::get('/categoryCreate',[BlogController::class,'categoryCreate'])->name('categoryCreate');
-Route::get('/categoryView',[BlogController::class,'categoryView'])->name('categoryView');
+//Route::get('/categoryView',[BlogController::class,'categoryView'])->name('categoryView');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('/categories',CategoryController::class);
+//Route::get('/del/{id}',[CategoryController::class,'del'])->name('del');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+//Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+

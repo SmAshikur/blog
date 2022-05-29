@@ -26,7 +26,7 @@
                         <a class="btn btn-success" href="{{route('categoryCreate')}}"> create a Category</a>
                       </div>
                       <div class="my-5">
-                        <a class="btn btn-success" href="{{route('categoryView')}}"> view Category</a>
+                        <a class="btn btn-success" href="{{route('categories.index')}}"> view Category</a>
                       </div>
 
                 </div>

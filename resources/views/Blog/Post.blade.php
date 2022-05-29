@@ -44,35 +44,22 @@
             {{$post->body}}
           </p>
         </div>
-      
+
       </section>
       <section class="recommended">
         <p>Related</p>
         <div class="recommended-cards">
-          <a href="">
-            <div class="recommended-card">
-              <img src="images/pic5.jpg" alt="" loading="lazy" />
-              <h4>
-                12 Health Benefits Of Pomegranate Fruit
-              </h4>
-            </div>
-          </a>
-          <a href="">
-            <div class="recommended-card">
-              <img src="images/pushups.jpg" alt="" loading="lazy" />
-              <h4>
-                The Truth About Pushups
-              </h4>
-            </div>
-          </a>
-          <a href="">
-            <div class="recommended-card">
-              <img src="images/smoothies.jpg" alt="" loading="lazy" />
-              <h4>
-                Healthy Smoothies
-              </h4>
-            </div>
-          </a>
+
+          @foreach ($relatedPost as $key )
+<a href={{route('post',$key)}}>
+    <div class="recommended-card">
+        <img style="width: 80%" src="{{asset($key->image)}}" alt="" />
+      <h4>
+        {{$key->title}}
+      </h4>
+    </div>
+  </a>
+@endforeach
 
         </div>
       </section>

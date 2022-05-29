@@ -28,9 +28,14 @@
     <main class="container">
       <section id="contact-us">
         <h1>Get in Touch!</h1>
-
+        @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
         <!-- contact info -->
         <div class="container">
+
           <div class="contact-info">
             <div class="specific-info">
               <i class="fas fa-home"></i>
@@ -62,25 +67,36 @@
 
           <!-- Contact Form -->
           <div class="contact-form">
-            <form action="" method="">
-              <!-- Name -->
-              <label for="name"><span>Name</span></label>
-              <input type="text" id="name" name="name" value="" />
+            <form action="{{ route('contact.store') }}" method="post">
+                @csrf
+                <!-- Name -->
+                <label for="name"><span>Name</span></label>
+                <input type="text" id="name" name="name" value="{{ old('name') }}" />
+                @error('name')
+                <p style="color: red; margin-bottom:5px; ">{{ $message }}</p>
+                @enderror
 
-              <!-- Email -->
-              <label for="email"><span>Email</span></label>
-              <input type="text" id="email" name="email" value="" />
+                <!-- Email -->
+                <label for="email"><span>Email</span></label>
+                <input type="text" id="email" name="email" value="{{ old('email') }}" />
+                @error('email')
+                <p style="color: red; margin-bottom:5px; ">{{ $message }}</p>
+                @enderror
 
-              <!-- Subject -->
-              <label for="subject"><span>Subject</span></label>
-              <input type="text" id="Subject" name="subject" value="" />
-
-              <!-- Message -->
-              <label for="message"><span>Message</span></label>
-              <textarea id="message" name="message"></textarea>
-
-               <!-- Button -->
-              <input type="submit" value="Submit" />
+                <!-- Subject -->
+                <label for="subject"><span>Subject</span></label>
+                <input type="text" id="Subject" name="subject" value="{{ old('subject') }}" />
+                @error('subject')
+                <p style="color: red; margin-bottom:5px; ">{{ $message }}</p>
+                @enderror
+                <!-- Message -->
+                <label for="message"><span>Message</span></label>
+                <textarea id="message" name="message">{{ old('message') }}</textarea>
+                @error('message')
+                <p style="color: red; margin-bottom:5px; ">{{ $message }}</p>
+                @enderror
+                <!-- Button -->
+                <input type="submit" value="Submit" />
             </form>
           </div>
         </div>

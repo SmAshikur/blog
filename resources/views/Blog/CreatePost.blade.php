@@ -32,6 +32,18 @@
                             <p style="color: red;  ">{{ $message }}</p>
                             @enderror
                             <div class="form-group">
+                                <select class="form-control" name="category_id">
+                                    <option> Select a Category</option>
+                                    @foreach ($cats as $cat )
+                                        <option value="{{$cat->id}}"> {{$cat->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('category_id')
+                            {{-- The $attributeValue field is/must be $validationRule --}}
+                            <p style="color: red;  ">{{ $message }}</p>
+                            @enderror
+                            <div class="form-group">
                                 <label> Image</label>
                                 <input type="file" class="form-control" name="image" value="{{old('image')}}">
                             </div>

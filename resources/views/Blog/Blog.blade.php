@@ -43,10 +43,9 @@
       </div>
       <div class="categories">
         <ul>
-          <li><a href="">Health</a></li>
-          <li><a href="">Entertainment</a></li>
-          <li><a href="">Sports</a></li>
-          <li><a href="">Nature</a></li>
+          @foreach ($cats as $cat)
+             <li><a href="{{route('blog', ['category' => $cat->name ])}}">{{$cat->name}}</a></li>
+          @endforeach
         </ul>
       </div>
       @if (session('status'))
